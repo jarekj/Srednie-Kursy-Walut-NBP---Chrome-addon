@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Średnie Kursy Walut NBP",
+  "version": "1.0",
+  "description": "Przeglądarka średnich kursów walut NBP (Tabela A) z funkcją szybkiego kopiowania.",
+  "permissions": ["clipboardWrite", "storage"],
+  "host_permissions": ["https://api.nbp.pl/*"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
