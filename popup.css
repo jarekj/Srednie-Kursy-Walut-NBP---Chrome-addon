@@ -67,6 +67,22 @@ button:hover {
   background-color: #0b5ed7;
 }
 
+.button-first {
+  background-color: #6b0000;
+}
+
+.button-first:hover {
+  background-color: #3d0000;
+}
+
+.button-today {
+  background-color: #adadad;
+}
+
+.button-today:hover {
+  background-color: #979797;
+}
+
 .info-container {
   display: flex;
   justify-content: space-between;
@@ -145,7 +161,7 @@ table {
 thead {
   position: sticky;
   top: 0;
-  background-color: #212529;
+  background-color: #4a535c;
   color: white;
   z-index: 2;
 }
