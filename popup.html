@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Średnie Kursy Walut NBP</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Średnie Kursy Walut NBP</h1>
+
+        <div class="controls">
+            <input type="date" id="date-picker">
+            <div class="button-group">
+                <button id="btn-first-year" title="Pierwsza tabela w bieżącym roku">1. w roku</button>
+                <button id="btn-prev" title="Poprzedni dzień">Dzień -1</button>
+                <button id="btn-today" title="Dzisiaj">Dzisiaj</button>
+                <button id="btn-next" title="Następny dzień">Dzień +1</button>
+            </div>
+        </div>
+
+        <div class="info-container">
+            <div id="info-number" class="copyable" title="Kliknij, aby skopiować numer tabeli">--</div>
+            <div id="info-date" class="copyable" title="Kliknij, aby skopiować datę tabeli">--</div>
+        </div>
+
+        <!-- Zakładki -->
+        <div class="tabs">
+            <button id="tab-all" class="tab-btn active">Wszystkie waluty</button>
+            <button id="tab-fav" class="tab-btn">★ Ulubione</button>
+        </div>
+
+        <!-- Tabela główna -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 20px;"></th>
+                        <th>Nazwa waluty</th>
+                        <th style="width: 40px; text-align: center;">Kod</th>
+                        <th style="text-align: right; width: 55px;">Kurs</th>
+                        <th style="width: 25px; text-align: center;">Trend</th>
+                    </tr>
+                </thead>
+                <tbody id="rates-body">
+                    <!-- Dane dynamiczne -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 📈 Panel modalny z wykresem historycznym -->
+    <div id="chart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="chart-title">Wykres kursu</h2>
+                <span class="close-btn" id="modal-close">&times;</span>
+            </div>
+
+            <!-- Selektor okresu historycznego -->
+            <div class="period-selector">
+                <button class="period-btn active" data-period="30">30 dni</button>
+                <button class="period-btn" data-period="90">90 dni</button>
+                <button class="period-btn" data-period="180">pół roku</button>
+            </div>
+
+            <div class="canvas-container">
+                <canvas id="chart-canvas" width="410" height="280"></canvas>
+            </div>
+
+            <div class="modal-footer">
+                <button id="btn-modal-back">Powrót do listy</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
