@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!response.ok) {
         if (response.status === 404) {
-          throw new Error("Brak tabeli NBP dla tej daty.");
+          throw new Error("Brak tabeli NBP dla wybranej daty. Wybierz dzień roboczy.");
         }
         throw new Error("Błąd połączenia z API.");
       }
