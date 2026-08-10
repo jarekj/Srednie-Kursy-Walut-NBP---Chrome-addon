@@ -9,17 +9,27 @@
 
 <body>
     <div class="container">
-        <h1>Średnie Kursy Walut NBP</h1>
-
+        <div class="header-row">
+            <h1>Średnie Kursy Walut NBP</h1>
+            <div class="font-size-controls">
+                <div class="font-size-group">
+                    <button id="font-small" class="font-size-btn">+</button>
+                    <button id="font-medium" class="font-size-btn active">++</button>
+                    <button id="font-large" class="font-size-btn">+++</button>
+                </div>
+            </div>
+        </div>
         <div class="controls">
             <input type="date" id="date-picker">
             <div class="button-group">
                 <button id="btn-first-year" class="button-first" title="Pierwsza tabela w bieżącym roku">pierwsza tabela</button>
-                <button id="btn-prev" title="Poprzedni dzień">dzień -1</button>
+                <button id="btn-prev" title="Poprzedni dzień">&lt; dzień -1</button>
                 <button id="btn-today" class="button-today" title="Dzisiaj">dzisiaj</button>
-                <button id="btn-next" title="Następny dzień">dzień +1</button>
+                <button id="btn-next" title="Następny dzień">dzień +1 &gt;</button>
             </div>
         </div>
+
+
 
         <div class="info-container">
             <div id="info-number" class="copyable" title="Kliknij, aby skopiować numer tabeli">--</div>
@@ -28,8 +38,8 @@
 
         <!-- Zakładki -->
         <div class="tabs">
-            <button id="tab-all" class="tab-btn active">Wszystkie waluty</button>
-            <button id="tab-fav" class="tab-btn">★ Ulubione</button>
+            <button id="tab-fav" class="tab-btn active">★ Ulubione</button>
+            <button id="tab-all" class="tab-btn">Wszystkie waluty</button>
         </div>
 
         <!-- Tabela główna -->
