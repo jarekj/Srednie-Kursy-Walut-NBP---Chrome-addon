@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tabAll = document.getElementById("tab-all");
   const tabFav = document.getElementById("tab-fav");
+  const fontSizeSmall = document.getElementById("font-small");
+  const fontSizeMedium = document.getElementById("font-medium");
+  const fontSizeLarge = document.getElementById("font-large");
+  const fontSizeButtons = document.querySelectorAll(".font-size-btn");
+  const bodyEl = document.body;
 
   // Elementy modalu wykresu
   const chartModal = document.getElementById("chart-modal");
@@ -24,7 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentRates = [];
   let favoriteCurrencies = [];
-  let activeTab = "all";
+  let activeTab = "fav";
+  let activeFontSize = "medium";
 
   // Stan aktywnego wykresu
   let activeChartCurrency = null;
@@ -43,12 +49,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const todayStr = formatDateString(new Date());
   datePicker.value = todayStr;
 
-  chrome.storage.local.get(["favorites"], (result) => {
-    if (result.favorites) {
+  const defaultFavorites = ["USD", "EUR", "CHF", "GBP"];
+
+  chrome.storage.local.get(["favorites", "fontSize"], (result) => {
+    if (result.favorites && Array.isArray(result.favorites) && result.favorites.length > 0) {
       favoriteCurrencies = result.favorites;
+    } else {
+      favoriteCurrencies = defaultFavorites.slice();
+      chrome.storage.local.set({ favorites: favoriteCurrencies });
     }
+    if (result.fontSize) {
+      activeFontSize = result.fontSize;
+    }
+    applyFontSize();
     fetchRates(todayStr);
   });
+
+  const setFontSize = (size) => {
+    activeFontSize = size;
+    chrome.storage.local.set({ fontSize: size });
+    applyFontSize();
+  };
+
+  const applyFontSize = () => {
+    bodyEl.classList.remove("font-size-small", "font-size-medium", "font-size-large");
+    bodyEl.classList.add(`font-size-${activeFontSize}`);
+    fontSizeButtons.forEach((btn) => {
+      btn.classList.toggle("active", btn.id === `font-${activeFontSize}`);
+    });
+  };
+
+  fontSizeSmall.addEventListener("click", () => setFontSize("small"));
+  fontSizeMedium.addEventListener("click", () => setFontSize("medium"));
+  fontSizeLarge.addEventListener("click", () => setFontSize("large"));
 
   const fetchRates = async (dateStr) => {
     ratesBody.innerHTML =
