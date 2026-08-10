@@ -1,14 +1,27 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
   margin: 0;
   padding: 8px;
-  width: 450px;
+  width: 500px;
   height: 600px;
   box-sizing: border-box;
   background-color: #f8f9fa;
   color: #212529;
   overflow: hidden;
   position: relative;
+}
+
+body.font-size-small {
+  font-size: 11.5px;
+}
+
+body.font-size-medium {
+  font-size: 13px;
+}
+
+body.font-size-large {
+  font-size: 14.5px;
 }
 
 .container {
@@ -18,24 +31,72 @@ body {
 }
 
 h1 {
-  font-size: 15px;
+  font-size: 1.15em;
   margin: 0 0 6px 0;
   text-align: center;
   color: #0b5ed7;
   font-weight: 700;
 }
 
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
 .controls {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 6px;
   margin-bottom: 6px;
 }
 
+.font-size-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.font-size-label {
+  font-size: 0.92em;
+  font-weight: 600;
+  color: #495057;
+}
+
+.font-size-group {
+  display: flex;
+  gap: 4px;
+}
+
+.font-size-btn {
+  background-color: #f1f3f5;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.92em;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.font-size-btn:hover {
+  background-color: #e2e6ea;
+}
+
+.font-size-btn.active {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+}
+
 #date-picker {
-  padding: 4px;
-  font-size: 11px;
+  padding: 6px;
+  font-size: 0.92em;
   border: 1px solid #ced4da;
   border-radius: 4px;
   outline: none;
@@ -52,8 +113,8 @@ h1 {
 
 button {
   flex: 1;
-  padding: 4px 2px;
-  font-size: 10px;
+  padding: 6px 4px;
+  font-size: 0.92em;
   font-weight: 600;
   background-color: #0d6efd;
   color: white;
@@ -72,7 +133,7 @@ button:hover {
 }
 
 .button-first:hover {
-  background-color: #3d0000;
+  background-color: #810000;
 }
 
 .button-today {
@@ -97,7 +158,7 @@ button:hover {
   padding: 4px;
   border-radius: 4px;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 0.92em;
   text-align: center;
   border: 1px dashed #dee2e6;
 }
@@ -126,8 +187,8 @@ button:hover {
   border: none;
   border-bottom: 2px solid transparent;
   border-radius: 0;
-  padding: 6px;
-  font-size: 11px;
+  padding: 8px;
+  font-size: 0.92em;
   cursor: pointer;
 }
 
@@ -155,13 +216,13 @@ button:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 10.5px;
+  font-size: 0.92em;
 }
 
 thead {
   position: sticky;
   top: 0;
-  background-color: #4a535c;
+  background-color: #005ab4;
   color: white;
   z-index: 2;
 }
@@ -192,7 +253,7 @@ tbody tr:hover {
 
 .star {
   cursor: pointer;
-  font-size: 12px;
+  font-size: 0.92em;
   color: #ced4da;
   user-select: none;
 }
@@ -203,7 +264,7 @@ tbody tr:hover {
 
 .chart-trigger {
   cursor: pointer;
-  font-size: 11px;
+  font-size: 0.92em;
   opacity: 0.6;
   transition: opacity 0.1s;
   user-select: none;
@@ -244,7 +305,7 @@ tbody tr:hover {
 }
 
 .modal-header h2 {
-  font-size: 14px;
+  font-size: 1.08em;
   margin: 0;
   color: #0b5ed7;
 }
@@ -271,8 +332,8 @@ tbody tr:hover {
   color: #495057;
   border: 1px solid #dee2e6;
   border-radius: 4px;
-  padding: 3px 8px;
-  font-size: 10px;
+  padding: 4px 10px;
+  font-size: 0.92em;
 }
 
 .period-btn.active {
@@ -326,8 +387,8 @@ tbody tr:hover {
 .toast {
   background-color: #198754;
   color: white;
-  padding: 4px 10px;
-  font-size: 10px;
+  padding: 6px 12px;
+  font-size: 0.92em;
   font-weight: 500;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
